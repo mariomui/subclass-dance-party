@@ -49,3 +49,19 @@ makeDancer.prototype.rightLineup = function (i) {
 makeDancer.prototype.hover = function () {
   console.log('fdjhsok');
 }
+
+//input oves the this to the object.
+makeDancer.prototype.move = function (otherDancer) {
+  var left = otherDancer.$node.css('left');
+  var top = otherDancer.$node.css('top');
+  var styleSettings = {
+    top: top,
+    left: left,
+    // transition-timing - function: 'ease',
+
+    // /* Also the same as */
+    // transition-timing - function: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+  };
+  console.log(this.$node, '!');
+  this.$node.css(styleSettings);
+}

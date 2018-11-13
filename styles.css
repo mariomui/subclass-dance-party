@@ -51,6 +51,13 @@ a:active {
 .santa {
     border: none;
     content: url(./assets/santa.gif);
+    transition-timing-function: ease-out;
+
+    /* A litttttle slower on the way in */
+    transition: 0.25s;
+    
+    /* Move into place */
+    transform: translateY(0);
 }
 
 .gingerbread {

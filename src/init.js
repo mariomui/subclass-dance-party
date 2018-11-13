@@ -1,6 +1,7 @@
 $(document).ready(function () {
     window.dancers = [];
     window.otherDancers = []; //mario
+
     $('.addDancerButton').on('click', function (event) {
         /* This function sets up the click handlers for the create-dancer
          * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -64,8 +65,18 @@ $(document).ready(function () {
                 currentElem.rightLineup(r);
             }
         })
-        console.log(dancers);
+        //on a click this should move one dancer to another.
+        $('.mover').on('click', function () {
+            for (var i = 0; i < window.dancers.length; i++) {
+                const currentElem = window.dancers[i];
+                const nextElem = window.otherDancers[i];
+                currentElem.move(nextElem);
+            }
+            //dancers[i]$.node.css('left') gets you the left property.
+        })
+        // console.log(dancers);
         // debugger;
         $(".dancers").append(dancer.$node);
+        //appends all the dancer classes to dancer.nodes in the jquery dom.
     });
 });
