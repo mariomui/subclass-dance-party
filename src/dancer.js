@@ -15,3 +15,11 @@ makeDancer.prototype.setPosition = function (top, left) {
   };
   this.$node.css(styleSettings);
 }
+
+makeDancer.prototype.lineup = function (i) {
+  var styleSettings = {
+    top: 50,
+    left: (window.screen.width / window.dancers.length) * i,
+  };
+  this.$node.css(styleSettings);
+}

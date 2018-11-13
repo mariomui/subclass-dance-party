@@ -30,6 +30,15 @@ $(document).ready(function () {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
+    $('.lineup').on('click', function () {
+      for (var i = 0; i < window.dancers.length; i++) {
+        //lineup function shoudl be attached to each individual
+        const currentElem = window.dancers[i];
+        currentElem.lineup(i);
+      }
+    });
+    console.log(dancers);
     // debugger;
     $('body').append(dancer.$node);
   });
