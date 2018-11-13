@@ -37,6 +37,14 @@ a:active {
     position: absolute;
 }
 
+.blinky {
+    border: 10px solid green;
+    border-radius: 10px;
+    position: absolute;
+    transform: scale(4);
+    perspective: 1000px;
+}
+
 .imager {
     content: url(./assets/giphy.gif);
 }

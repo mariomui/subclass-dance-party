@@ -30,7 +30,10 @@ $(document).ready(function() {
             $("body").width() * Math.random(),
             Math.random() * 1000
         );
-        window.dancers.push(dancer);
+        if (dancer instanceof imageDancer) {
+
+            window.dancers.push(dancer);
+        }
         $('.lineup').on('click', function() {
             for (var i = 0; i < window.dancers.length; i++) {
                 //lineup function shoudl be attached to each individual
