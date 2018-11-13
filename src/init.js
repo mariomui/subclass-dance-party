@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
     window.dancers = [];
-
-    $('.addDancerButton').on('click', function(event) {
+    window.otherDancers = []; //mario
+    $('.addDancerButton').on('click', function (event) {
         /* This function sets up the click handlers for the create-dancer
          * buttons on dancefloor.html. You should only need to make one small change to it.
          * As long as the "data-dancer-maker-function-name" attribute of a
@@ -26,23 +26,46 @@ $(document).ready(function() {
         // make a dancer with a random position
 
         var dancer = new dancerMakerFunction(
-            $("body").height() * Math.random(),
-            $("body").width() * Math.random(),
+            ($(".dancers").height() * Math.random()),
+            ($(".dancers").width() * Math.random()),
             Math.random() * 1000
         );
         if (dancer instanceof imageDancer) {
 
             window.dancers.push(dancer);
+        } else if (dancer instanceof makeRainbowDancer) {
+            window.otherDancers.push(dancer);
         }
-        $('.lineup').on('click', function() {
+
+        $('.dancer').on('click', function () {
+            $('.dancer').css('transform', 'scale(1.5)');
+        })
+
+        $('.lineup').on('click', function () {
             for (var i = 0; i < window.dancers.length; i++) {
-                //lineup function shoudl be attached to each individual
                 const currentElem = window.dancers[i];
                 currentElem.lineup(i);
             }
+
+            for (var i = 0; i < window.otherDancers.length; i++) {
+                const currentElem = window.otherDancers[i];
+                currentElem.lineup(i);
+            }
+
         });
+        $('.horizLineup').on('click', function () {
+            for (var i = 0; i < window.dancers.length; i++) {
+                const currentElem = window.dancers[i];
+                currentElem.leftLineup(i);
+            }
+
+            for (var r = 0; r < window.otherDancers.length; r++) {
+                const currentElem = window.otherDancers[r];
+                currentElem.rightLineup(r);
+            }
+        })
         console.log(dancers);
         // debugger;
-        $('body').append(dancer.$node);
+        $(".dancers").append(dancer.$node);
     });
 });

@@ -5,7 +5,9 @@ html {
 
 body {
     margin: 0px;
-    background-color: #444;
+    background-image: url("./assets/bg.png");
+    background-repeat: no-repeat;
+    width: 100%;
     font-size: 18px;
 }
 
@@ -31,11 +33,7 @@ a:active {
     background-color: #777;
 }
 
-.dancer {
-    border: 10px solid red;
-    border-radius: 10px;
-    position: absolute;
-}
+
 
 .blinky {
     border: 10px solid green;
@@ -45,6 +43,24 @@ a:active {
     perspective: 1000px;
 }
 
-.imager {
-    content: url(./assets/giphy.gif);
+.dancers {
+    width: 60%;
+    height: 60%;
+}
+
+.santa {
+    border: none;
+    content: url(./assets/santa.gif);
+}
+
+.gingerbread {
+    border: none;
+    content: url(./assets/gingerbread.gif);
+    max-width: 15%;
+}
+
+.dancer {
+    border: none;
+    border-radius: 10px;
+    position: absolute;
 }
