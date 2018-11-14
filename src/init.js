@@ -31,15 +31,25 @@ $(document).ready(function () {
             ($(".dancers").width() * Math.random()),
             Math.random() * 1000
         );
+
         if (dancer instanceof imageDancer) {
 
             window.dancers.push(dancer);
         } else if (dancer instanceof makeRainbowDancer) {
             window.otherDancers.push(dancer);
         }
-
+        //to grow it.
+        var flag = true;
         $('.dancer').on('click', function () {
-            $('.dancer').css('transform', 'scale(1.5)');
+            if (flag) {
+
+                $('.dancer').css('transform', 'scale(1.5)');
+                flag = false;
+            } else {
+                $('.dancer').css('transform', 'scale(.4)')
+                flag = true;
+            }
+
         })
 
         $('.lineup').on('click', function () {
@@ -74,6 +84,19 @@ $(document).ready(function () {
             }
             //dancers[i]$.node.css('left') gets you the left property.
         })
+
+        document.addEventListener('keydown', function (event) {
+            if (event.code == 'ArrowDown') {
+                makeDancer.prototype.keydown(event);
+            } else if (event.code === 'ArrowUp') {
+                makeDancer.prototype.keyup(event);
+            } else if (event.code === 'ArrowLeft') {
+                makeDancer.prototype.keyleft(event);
+            } else if (event.code === 'ArrowRight') {
+                makeDancer.prototype.keyright(event);
+            }
+        });
+
         // console.log(dancers);
         // debugger;
         $(".dancers").append(dancer.$node);

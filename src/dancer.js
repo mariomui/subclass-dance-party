@@ -65,3 +65,38 @@ makeDancer.prototype.move = function (otherDancer) {
   console.log(this.$node, '!');
   this.$node.css(styleSettings);
 }
+
+
+makeDancer.prototype.keydown = function (evt) {
+  var topvalue = dancers[0].$node.css('top');
+  var leftvalue = dancers[0].$node.css('left');
+  topvalue = Number(topvalue.split('px')[0]);
+  topvalue += 75;
+  console.log(topvalue);
+  dancers[0].setPosition(topvalue, leftvalue);
+}
+
+makeDancer.prototype.keyup = function (evt) {
+  var topvalue = dancers[0].$node.css('top');
+  var leftvalue = dancers[0].$node.css('left');
+  topvalue = Number(topvalue.split('px')[0]);
+  topvalue -= 75;
+  console.log(topvalue);
+  dancers[0].setPosition(topvalue);
+}
+
+makeDancer.prototype.keyleft = function (evt) {
+  var leftValue = dancers[0].$node.css('left');
+  var topvalue = dancers[0].$node.css('top');
+  leftValue = Number(leftValue.split('px')[0]);
+  leftValue -= 75;
+  dancers[0].setPosition(topvalue, leftValue);
+}
+
+makeDancer.prototype.keyright = function (evt) {
+  var leftValue = dancers[0].$node.css('left');
+  var topvalue = dancers[0].$node.css('top');
+  leftValue = Number(leftValue.split('px')[0]);
+  leftValue += 75;
+  dancers[0].setPosition(topvalue, leftValue);
+}
