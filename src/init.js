@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
     window.dancers = [];
     window.otherDancers = []; //mario
 
-    $('.addDancerButton').on('click', function (event) {
+    $('.addDancerButton').on('click', function(event) {
         /* This function sets up the click handlers for the create-dancer
          * buttons on dancefloor.html. You should only need to make one small change to it.
          * As long as the "data-dancer-maker-function-name" attribute of a
@@ -40,7 +40,7 @@ $(document).ready(function () {
         }
         //to grow it.
         var flag = true;
-        $('.dancer').on('click', function () {
+        $('.dancer').on('click', function() {
             if (flag) {
 
                 $('.dancer').css('transform', 'scale(1.5)');
@@ -52,7 +52,7 @@ $(document).ready(function () {
 
         })
 
-        $('.lineup').on('click', function () {
+        $('.lineup').on('click', function() {
             for (var i = 0; i < window.dancers.length; i++) {
                 const currentElem = window.dancers[i];
                 currentElem.lineup(i);
@@ -64,19 +64,19 @@ $(document).ready(function () {
             }
 
         });
-        $('.horizLineup').on('click', function () {
-            for (var i = 0; i < window.dancers.length; i++) {
-                const currentElem = window.dancers[i];
-                currentElem.leftLineup(i);
-            }
+        $('.horizLineup').on('click', function() {
+                for (var i = 0; i < window.dancers.length; i++) {
+                    const currentElem = window.dancers[i];
+                    currentElem.leftLineup(i);
+                }
 
-            for (var r = 0; r < window.otherDancers.length; r++) {
-                const currentElem = window.otherDancers[r];
-                currentElem.rightLineup(r);
-            }
-        })
-        //on a click this should move one dancer to another.
-        $('.mover').on('click', function () {
+                for (var r = 0; r < window.otherDancers.length; r++) {
+                    const currentElem = window.otherDancers[r];
+                    currentElem.rightLineup(r);
+                }
+            })
+            //on a click this should move one dancer to another.
+        $('.mover').on('click', function() {
             for (var i = 0; i < window.dancers.length; i++) {
                 const currentElem = window.dancers[i];
                 const nextElem = window.otherDancers[i];
@@ -85,7 +85,7 @@ $(document).ready(function () {
             //dancers[i]$.node.css('left') gets you the left property.
         })
 
-        document.addEventListener('keydown', function (event) {
+        document.addEventListener('keydown', function(event) {
             if (event.code == 'ArrowDown') {
                 makeDancer.prototype.keydown(event);
             } else if (event.code === 'ArrowUp') {
